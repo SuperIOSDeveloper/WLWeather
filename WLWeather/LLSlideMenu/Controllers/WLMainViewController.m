@@ -210,16 +210,16 @@
     CGFloat maxX = (SCREEN_BOUNDS.size.width-40)/10;
     
     //扩大y值使曲线看起来有坡度
-    [maxTempBezierPath moveToPoint:CGPointMake(maxX, ([firstDaily.maxTempC floatValue]*5))];
+    [maxTempBezierPath moveToPoint:CGPointMake(maxX, [firstDaily.maxTempC floatValue]*2)];
     //最高温label
-    self.maxTempLabel.frame = CGRectMake(20, ([firstDaily.maxTempC floatValue]*5)-30, 100, 20);
+    self.maxTempLabel.frame = CGRectMake(20, ([firstDaily.maxTempC floatValue]*2)-20, 100, 20);
     self.maxTempLabel.textColor = [UIColor whiteColor];
     self.maxTempLabel.font = [UIFont systemFontOfSize:13];
     self.maxTempLabel.text = [NSString stringWithFormat:@"最高温:%@",firstDaily.maxTempC];
     [self.tempView addSubview:self.maxTempLabel];
     
     for (maxTempDaily in self.dailyArray) {
-        [maxTempBezierPath addLineToPoint:CGPointMake(maxX, [maxTempDaily.maxTempC floatValue]*5)];
+        [maxTempBezierPath addLineToPoint:CGPointMake(maxX, [maxTempDaily.maxTempC floatValue]*2)];
         maxX += (SCREEN_BOUNDS.size.width-40)/5;
     }
     self.maxTempShapeLayer = [CAShapeLayer layer];
@@ -244,16 +244,16 @@
     WLDaily *minTempDaily = [[WLDaily alloc] init];
     WLDaily *firstDaily = self.dailyArray[0];
     CGFloat minX = (SCREEN_BOUNDS.size.width-40)/10;
-    [minTempBezierPath moveToPoint:CGPointMake(minX, ([firstDaily.mintempC floatValue])*5+80.0)];
+    [minTempBezierPath moveToPoint:CGPointMake(minX, ([firstDaily.mintempC floatValue])*2+80.0)];
     //创建最低温lebel
-    self.minTempLabel.frame = CGRectMake(20, (([firstDaily.mintempC floatValue]*5)+80.0)+20, 100, 20);
+    self.minTempLabel.frame = CGRectMake(20, (([firstDaily.mintempC floatValue]*2)+80.0)+20, 100, 20);
     self.minTempLabel.textColor = [UIColor whiteColor];
     self.minTempLabel.font = [UIFont systemFontOfSize:13];
     self.minTempLabel.text = [NSString stringWithFormat:@"最低温:%@",firstDaily.mintempC];
     [self.tempView addSubview:self.minTempLabel];
     
     for (minTempDaily in self.dailyArray) {
-        [minTempBezierPath addLineToPoint:CGPointMake(minX, ([minTempDaily.mintempC floatValue])*5+ 80.0)];
+        [minTempBezierPath addLineToPoint:CGPointMake(minX, ([minTempDaily.mintempC floatValue])*2+ 80.0)];
         minX += (SCREEN_BOUNDS.size.width-40)/5;
     }
     self.minTempShapeLayer = [CAShapeLayer layer];
